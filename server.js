@@ -139,7 +139,7 @@ app.use(cors());
 
 // Global variable to store the current ESP32 IP
 let CURRENT_DEVICE_IP = process.env.DEVICE_IP || "192.168.4.1";
-
+const HOST = '0.0.0.0';
 // Endpoint to update ESP32 IP address
 app.post("/update-device-ip", async (req, res) => {
   const { ipAddress } = req.body;
@@ -227,4 +227,4 @@ app.get("/getState", async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`)); 
+app.listen(PORT,HOST, () => console.log(`Server running on port ${HOST}`)); 
